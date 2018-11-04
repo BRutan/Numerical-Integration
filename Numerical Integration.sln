@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Numerical Integration", "Numerical Integration\Numerical Integration.vcxproj", "{C29AE3F1-C415-4D69-BFB2-4DA485CFB05C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C29AE3F1-C415-4D69-BFB2-4DA485CFB05C}.Debug|x64.ActiveCfg = Debug|x64
+		{C29AE3F1-C415-4D69-BFB2-4DA485CFB05C}.Debug|x64.Build.0 = Debug|x64
+		{C29AE3F1-C415-4D69-BFB2-4DA485CFB05C}.Debug|x86.ActiveCfg = Debug|Win32
+		{C29AE3F1-C415-4D69-BFB2-4DA485CFB05C}.Debug|x86.Build.0 = Debug|Win32
+		{C29AE3F1-C415-4D69-BFB2-4DA485CFB05C}.Release|x64.ActiveCfg = Release|x64
+		{C29AE3F1-C415-4D69-BFB2-4DA485CFB05C}.Release|x64.Build.0 = Release|x64
+		{C29AE3F1-C415-4D69-BFB2-4DA485CFB05C}.Release|x86.ActiveCfg = Release|Win32
+		{C29AE3F1-C415-4D69-BFB2-4DA485CFB05C}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BACE3671-13B1-4197-91A3-68657F2F28D0}
+	EndGlobalSection
+EndGlobal
