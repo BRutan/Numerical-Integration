@@ -25,7 +25,7 @@ int main()
 	FType normPDF = [](double i) { return (1.0 / std::sqrt(2 * M_PI)) * std::exp((-i * i) / 2.0); };
 	// Compute values of norm cdf for values N(1), N(.1) and N(.01): 
 	// std::vector<std::vector<std::tuple<unsigned, double>>> NormDist = simpsons.Compute_All(normPDF, 0, ;
-	double tol = 10E-12;
+	double tol = 10E-11;
 	std::size_t n = 4;
 	///////////////
 	// Compute numerical approximation of integral of above function between 0 and 10:
@@ -46,9 +46,14 @@ int main()
 		{
 			if (j < results[i].size())
 			{
-				std::cout << "\t" << std::setprecision(12) << std::get<1>(results[i][j]) + 50.0;
+				std::cout << "\t" << std::setprecision(12) << std::get<1>(results[i][j]) + .500 << " ";
+			}
+			else
+			{
+				std::cout << std::setw(14) << std::left << " ";
 			}
 		}
+		std::cout << std::endl;
 	}
 	system("pause");
 	// std::for_each(results.begin(), results.end(), [](auto elem) { std::cout << std::setprecision(3) << elem << std::endl; });

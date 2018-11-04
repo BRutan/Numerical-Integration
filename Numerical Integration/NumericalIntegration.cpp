@@ -75,11 +75,20 @@ double NumericalIntegration::Compute(FType f_int, double a, double b, double tol
 		output = std::accumulate(f_x_i.begin(), f_x_i.end(), 0.0, [](auto elem1, auto elem2) { return elem1 + elem2; }) * h;
 		break;
 	case Trapezoid:
-		output = std::accumulate(f_a_i.begin(), f_a_i.end(), 0.0, [](auto elem1, auto elem2) { return elem1 + elem2; }) * (h / 2.0);
+		output = f_a_i[0] + f_a_i[f_a_i.size() - 1];
+		for (unsigned i = 1; i < f_a_i.size() - 1; i++)
+		{
+			output += 2.0 * f_a_i[i];
+		}
+		output *= (h / 2.0);
 		break;
 	case Simpson:
-		output = std::accumulate(f_x_i.begin(), f_x_i.end(), 0.0, [](auto elem1, auto elem2) { return elem1 + elem2; });
-		output += std::accumulate(f_a_i.begin(), f_a_i.end(), 4.0 * output, [](auto elem1, auto elem2) { return elem1 + elem2; });
+		output = std::accumulate(f_x_i.begin(), f_x_i.end(), f_a_i[0] + f_a_i[f_a_i.size() - 1], [](auto elem1, auto elem2) { return elem1 + elem2; });
+		output *= 4.0;
+		for (unsigned i = 1; i < f_a_i.size() - 1; i++)
+		{
+			output += 2.0 * f_a_i[i];
+		}
 		output *= h / 6.0;
 		break;
 	}
