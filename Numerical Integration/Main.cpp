@@ -3,10 +3,10 @@ Description:
 	* Test the NumericalIntegration class.
 */
 
-#define _USE_MATH_DEFINEs
+#define _USE_MATH_DEFINES
 
+#include <math.h>
 #include <algorithm>
-#include <cmath>
 #include <functional>
 #include <iomanip>
 #include <iostream>
@@ -17,14 +17,12 @@ Description:
 
 int main()
 {
-	double temp[3], a = 0, b = 2;
+	double temp[3], a = 0, b = 2, value = .1;
 	std::vector<std::tuple<unsigned, double>> results[3];
-	double upperBounds[3] = { 1, .1, .01 };
 	NumericalIntegration midpoint(Midpoint);
 	NumericalIntegration trapezoid(Trapezoid);
 	NumericalIntegration simpsons(Simpson);
-	FType exp = [](double i) { return std::exp(-i * i); };
-	FType normPDF = [](double i) { return (1 / std::sqrt(2 * 3.14)) * std::exp((-i * i) / 2); };
+	FType normPDF = [](double i) { return (1.0 / std::sqrt(2 * M_PI)) * std::exp((-i * i) / 2.0); };
 	// Compute values of norm cdf for values N(1), N(.1) and N(.01): 
 	// std::vector<std::vector<std::tuple<unsigned, double>>> NormDist = simpsons.Compute_All(normPDF, 0, ;
 	double tol = 10E-12;
@@ -32,9 +30,9 @@ int main()
 	///////////////
 	// Compute numerical approximation of integral of above function between 0 and 10:
 	///////////////
-	results[1] = midpoint.Compute_All(normPDF, 0, .1, tol, 4);
-	// results[2] = trapezoid.Compute_All(normPDF, 0, .1, tol, 4);
-	results[3] = simpsons.Compute_All(normPDF, 0, .1, tol, 4);
+	results[0] = midpoint.Compute_All(normPDF, 0, value, tol, 4);
+	results[1] = trapezoid.Compute_All(normPDF, 0, value, tol, 4);
+	results[2] = simpsons.Compute_All(normPDF, 0, value, tol, 4);
 	///////////////
 	// Print results:
 	///////////////

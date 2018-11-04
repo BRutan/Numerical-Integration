@@ -30,8 +30,7 @@ class NumericalIntegration
 private:
 	Method CalcType;			
 	double _prev_comp;
-	std::vector<double> f_x_i;
-	void Compute_All_Inner(FType f_int, double a, double b, double tol, unsigned n_start, std::vector<std::tuple<unsigned, double>> &input);
+	double Compute(FType f_int, double a, double b, double tol, unsigned n_start);
 public:
 	////////////////////////////
 	// Constructors/Destructor:
@@ -42,7 +41,6 @@ public:
 	//////////////////////////////////////////
 	// Misc Methods:
 	//////////////////////////////////////////
-	double Compute(FType f_int, double a, double b, double tol, unsigned n_start);
 	std::vector<std::tuple<unsigned, double>> Compute_All(FType f_int, double a, double b, double tol, unsigned n_start);
 	////////////////////////////
 	// Overloaded Operators:
